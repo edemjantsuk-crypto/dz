@@ -3,8 +3,6 @@ from pydantic import BaseModel, Field
 
 app = FastAPI()
 
-
-# ---------- MODELS ----------
 class ProductCreate(BaseModel):
     name: str = Field(min_length=2, max_length=50)
     price: float = Field(gt=0)
@@ -13,7 +11,6 @@ class ProductCreate(BaseModel):
 
 class Product(ProductCreate):
     id: int
-
 
 
 products: list[Product] = [
@@ -27,7 +24,7 @@ products: list[Product] = [
 
 @app.get("/")
 def read_root():
-    return {"message": "Hello World"}
+    return {"message": "hello"}
 
 
 
